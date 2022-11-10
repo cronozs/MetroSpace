@@ -41,3 +41,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Backgound
+    uniqueID: 266943637
+    locked: 0
+  - name: Planets
+    uniqueID: 3283196119
+    locked: 0
+  - name: Walls
+    uniqueID: 1688859711
+    locked: 0
+  - name: Escenary
+    uniqueID: 4096363645
+    locked: 0
+  - name: Props
+    uniqueID: 1475855669
+    locked: 0
+  - name: Enemy
+    uniqueID: 1749529825
+    locked: 0
+  - name: Player
+    uniqueID: 1205479429
+    locked: 0
