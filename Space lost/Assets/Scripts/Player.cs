@@ -9,10 +9,14 @@ public class Player : MonoBehaviour
     private Rigidbody2D rigidbody2D_;
     private bool jumpPressed = false;
     [SerializeField] private float jumpForce;               //Agregamos una variable flotante para agrear furza al salto
+    public bool canDoubleJump;
+    [SerializeField] private float doubleJumpForce;         //Agregamos una variable flotante para agrear furza al DobleSalto
     [SerializeField] LayerChecker_1 footA;                  //Instanciamento a la Clase "LayerChecker_1" = footA
     [SerializeField] LayerChecker_1 footB;
     public bool canCheckGround;
     private bool playerIsOnGround;
+    [SerializeField] PlayerAnimator anim;
+
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +55,19 @@ public class Player : MonoBehaviour
     void HandleMovement()
     {
         rigidbody2D_.velocity = new Vector2(movementDirection.x * speed, rigidbody2D_.velocity.y);
+
+        if (playerIsOnGround)
+        {
+
+            if (Mathf.Abs(rigidbody2D_.velocity.x) > 0)                         //comprobamos si se esta moviendo en el eje "X"
+            {
+                anim.Play(AnimationId.Run);
+            }
+            else
+            {
+                anim.Play(AnimationId.Idle);
+            }
+        }
     }
     void HandleFlip()
     {
@@ -69,6 +86,12 @@ public class Player : MonoBehaviour
 
     void HandleJump()           //Método para agregarle fuerza la RigidBody del Hero
     {
+
+        if (canDoubleJump && jumpPressed && !playerIsOnGround)  //"!playerIsOnGround" esta variable nos indica que NO esta tocando el piso
+        {
+            this.rigidbody2D_.AddForce(Vector2.up * doubleJumpForce, ForceMode2D.Impulse);//agrega impulso de fuerza instantánea hacia arriba al doble salto           
+            canDoubleJump = false;                                                        //apagamos la variable "canDoubleJump“ para que no brinque infinitamente
+        }
         if (jumpPressed && playerIsOnGround)
 
         {
@@ -76,7 +99,7 @@ public class Player : MonoBehaviour
             //animatorController.Play(AnimationId.Idle);
 
             //StartCoroutine(HandleJumpAnimation());
-            //canDoubleJump = true;                                                   //prendemos la variable "canDoubleJump" para que brinque
+            canDoubleJump = true;                                                   //prendemos la variable "canDoubleJump" para que brinque
                                                                                     //de nuevo si apretamos la barra espaciadora 
 
         }
