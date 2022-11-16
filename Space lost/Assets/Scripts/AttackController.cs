@@ -40,42 +40,42 @@ public class AttackController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space))
         {
-            bullet.transform.rotation = new Quaternion(0, 0, 1, 0.5f);
+            bullet.transform.rotation = new Quaternion(0, 0, 1, -0.42f);
             InstanciarBala();
         }
         else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.Space))
         {
-            bullet.transform.rotation = new Quaternion(0, 0, 1, -0.5f);
+            bullet.transform.rotation = new Quaternion(0, 0, 1, -2.4f);
             InstanciarBala();
         }
         else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.Space))
         {
-            bullet.transform.rotation = new Quaternion(0, 0, 1, -2f);
+            bullet.transform.rotation = new Quaternion(0, 0, 1, 2.4f);
             InstanciarBala();
         }
         else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.Space))
         {
-            bullet.transform.rotation = new Quaternion(0, 0, 1, 2f);
+            bullet.transform.rotation = new Quaternion(0, 0, 1, 0.42f);
             InstanciarBala();
         }
         else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space))
         {
-            bullet.transform.rotation = new Quaternion(0, 0, 1, 0);
+            bullet.transform.rotation = new Quaternion(0, 0, 1, -1);
             InstanciarBala();
         }
         else if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.Space))
         {
-            bullet.transform.rotation = new Quaternion(0, 0, 1, 1);
+            bullet.transform.rotation = new Quaternion(0, 0, 1, 0);
             InstanciarBala();
         }
         else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.Space))
         {
-            bullet.transform.rotation = new Quaternion(0, 0, 1, -100);
+            bullet.transform.rotation = new Quaternion(0, 0, 1, 1);
             InstanciarBala();
         }
         else if (Input.GetKey(KeyCode.Space))
         {
-            bullet.transform.rotation = new Quaternion(0, 0, 1, -1);
+            bullet.transform.rotation = new Quaternion(0, 0, 1, 100);
             InstanciarBala();
         }
     }

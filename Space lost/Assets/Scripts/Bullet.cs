@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bala.transform.Translate(0, vel * Time.deltaTime, 0);
+        bala.transform.Translate(vel * Time.deltaTime, 0, 0);
     }
 
     private void OnBecameInvisible()
