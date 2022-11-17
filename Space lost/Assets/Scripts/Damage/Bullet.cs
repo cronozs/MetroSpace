@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public GameObject bala;
     [SerializeField] float vel;
     public AttackController coun;
+    [SerializeField] TagId targetTag;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +28,12 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (collision.gameObject.tag.Equals(targetTag.ToString()))
+        {
+            return;
+        }
+        else
+            Destroy(gameObject);
     }
 
 }
