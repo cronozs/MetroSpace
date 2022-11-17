@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, ICombat
 {
     [SerializeField] private float speed;                  //"SerializeField" significa que desde el inspector podemos  manipular o ver su valor.
     [SerializeField] private Vector2 movementDirection;     //"SerializeField" significa que desde el inspector podemos  manipular o ver su valor.
@@ -16,11 +17,15 @@ public class Player : MonoBehaviour
     public bool canCheckGround;
     private bool playerIsOnGround;
     [SerializeField] PlayerAnimator anim;
+    [SerializeField] int health = 10;
+
+    public TMP_Text Contador;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        Contador.text = "Salud:  " + health.ToString();
         canCheckGround = true;                              //inicializamos la variable "canCheckGround" como verdadera
         rigidbody2D_ = GetComponent<Rigidbody2D>();
     }
@@ -115,5 +120,16 @@ public class Player : MonoBehaviour
         anim.Play(AnimationId.Jump);           //Ejecuta el clip "Brinco"
         //yield return new WaitForSeconds(1);                     //Ejecutar el Clip "Brinco" durante 1f uniades de tiempo
         canCheckGround = true;
+    }
+
+    public void TakeDamage(int damagePoints)
+    {
+        health -= damagePoints;
+        Contador.text = "Salud:  " + health.ToString();
+        if (health == 0)
+        {
+            Destroy(gameObject);
+        }
+
     }
 }

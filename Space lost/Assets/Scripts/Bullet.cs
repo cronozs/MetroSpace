@@ -11,7 +11,6 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         coun = FindObjectOfType<AttackController>();
-        Debug.Log(coun.counter);
     }
 
     // Update is called once per frame
