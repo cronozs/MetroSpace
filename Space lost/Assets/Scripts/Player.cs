@@ -98,10 +98,22 @@ public class Player : MonoBehaviour
             this.rigidbody2D_.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             //animatorController.Play(AnimationId.Idle);
 
-            //StartCoroutine(HandleJumpAnimation());
+            StartCoroutine(HandleJumpAnimation());
             canDoubleJump = true;                                                   //prendemos la variable "canDoubleJump" para que brinque
                                                                                     //de nuevo si apretamos la barra espaciadora 
 
         }
+    }
+
+    IEnumerator HandleJumpAnimation()                       //Corrutina que ejecuta dos "clips" desfasados en tiempo 0.4f unidades de tiempo
+    {
+        canCheckGround = false;
+        playerIsOnGround = false;
+        yield return new WaitForSeconds(0.1f);                  //Ejecutar el Clip "Brinco" durante 0.1f uniades de tiempo
+        anim.Play(AnimationId.PreJump);   //Ejecuta el clip "PrepararBrinco"
+        yield return new WaitForSeconds(0.2f);                  //Ejecutar el Clip "PrepararBrinco" durante 0.2f uniades de tiempo
+        anim.Play(AnimationId.Jump);           //Ejecuta el clip "Brinco"
+        //yield return new WaitForSeconds(1);                     //Ejecutar el Clip "Brinco" durante 1f uniades de tiempo
+        canCheckGround = true;
     }
 }

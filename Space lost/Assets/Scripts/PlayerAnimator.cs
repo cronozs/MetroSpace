@@ -7,6 +7,8 @@ public enum AnimationId                 //Definimos un enumerado
 {
     Idle = 0,
     Run = 1,
+    PreJump= 2,
+    Jump = 3,
 }
 public class PlayerAnimator : MonoBehaviour
 {
