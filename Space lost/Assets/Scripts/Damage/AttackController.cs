@@ -6,7 +6,7 @@ public class AttackController : MonoBehaviour
 {
     public GameObject bullet;
     public GameObject player;
-    //public GameObject arrow;
+    public GameObject arrow;
     [SerializeField] private float tiempoDeEspera;
     private float tiempoAtaque;
     private bool puedoAtacar;
@@ -20,7 +20,7 @@ public class AttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //DireccionFlecha();
+        DireccionFlecha();
         tiempoAtaque -= Time.deltaTime;
         if(puedoAtacar == true && Input.GetKey(KeyCode.Space) && counter < 3)
         {
@@ -40,42 +40,42 @@ public class AttackController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space))
         {
-            bullet.transform.rotation = new Quaternion(0, 0, 1, -0.42f);
+            bullet.transform.rotation = Quaternion.Euler(0, 0, 225);
             InstanciarBala();
         }
         else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.Space))
         {
-            bullet.transform.rotation = new Quaternion(0, 0, 1, -2.4f);
+            bullet.transform.rotation = Quaternion.Euler(0, 0, 315);
             InstanciarBala();
         }
         else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.Space))
         {
-            bullet.transform.rotation = new Quaternion(0, 0, 1, 2.4f);
+            bullet.transform.rotation = Quaternion.Euler(0, 0, 45);
             InstanciarBala();
         }
         else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.Space))
         {
-            bullet.transform.rotation = new Quaternion(0, 0, 1, 0.42f);
+            bullet.transform.rotation = Quaternion.Euler(0, 0, 135);
             InstanciarBala();
         }
         else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space))
         {
-            bullet.transform.rotation = new Quaternion(0, 0, 1, -1);
+            bullet.transform.rotation = Quaternion.Euler(0, 0, 270);
             InstanciarBala();
         }
         else if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.Space))
         {
-            bullet.transform.rotation = new Quaternion(0, 0, 1, 0);
+            bullet.transform.rotation = Quaternion.Euler(0, 0, 180);
             InstanciarBala();
         }
         else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.Space))
         {
-            bullet.transform.rotation = new Quaternion(0, 0, 1, 1);
+            bullet.transform.rotation = Quaternion.Euler(0, 0, 90);
             InstanciarBala();
         }
         else if (Input.GetKey(KeyCode.Space))
         {
-            bullet.transform.rotation = new Quaternion(0, 0, 1, 100);
+            bullet.transform.rotation = Quaternion.Euler(0, 0, 0);
             InstanciarBala();
         }
     }
@@ -87,39 +87,47 @@ public class AttackController : MonoBehaviour
         counter += 1;
     }
 
-    /*void DireccionFlecha()
+    void DireccionFlecha()
     {
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.S))
         {
-            arrow.transform.rotation = new Quaternion(0, 0, 1, -0.5f);
+            arrow.transform.position = player.transform.position + new Vector3(-1f,-1.5f,0);
+            arrow.transform.rotation = Quaternion.Euler(0, 0, 225);
         }
         else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
         {
-            arrow.transform.rotation = new Quaternion(0, 0, 1, -2f);
+            arrow.transform.position = player.transform.position + new Vector3(1f, -1.5f, 0);
+            arrow.transform.rotation = Quaternion.Euler(0, 0, 315);
         }
         else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
         {
-            arrow.transform.rotation = new Quaternion(0, 0, 1, 2f);
+            arrow.transform.position = player.transform.position + new Vector3(1f, 1.5f, 0);
+            arrow.transform.rotation = Quaternion.Euler(0, 0, 45);
         }
         else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
         {
-            arrow.transform.rotation = new Quaternion(0, 0, 1, 0.5f);
+            arrow.transform.position = player.transform.position + new Vector3(-1f, 1.5f, 0);
+            arrow.transform.rotation = Quaternion.Euler(0, 0, 135);
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            arrow.transform.rotation = new Quaternion(0, 0, 1, -1);
+            arrow.transform.position = player.transform.position + new Vector3(0, -1.5f, 0);
+            arrow.transform.rotation = Quaternion.Euler(0, 0, 270);
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            arrow.transform.rotation = new Quaternion(0, 0, 1, 0);
+            arrow.transform.position = player.transform.position + new Vector3(-1.2f, 0, 0);
+            arrow.transform.rotation = Quaternion.Euler(0, 0, 180);
         }
         else if (Input.GetKey(KeyCode.W))
         {
-            arrow.transform.rotation = new Quaternion(0, 0, 1, 1);
+            arrow.transform.position = player.transform.position + new Vector3(0, 1.7f, 0);
+            arrow.transform.rotation = Quaternion.Euler(0, 0, 90);
         }
         else
         {
-            arrow.transform.rotation = new Quaternion(0, 0, 1, -100);
+            arrow.transform.position = player.transform.position + new Vector3(1.2f, 0, 0);
+            arrow.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-    }*/
+    }
 }
