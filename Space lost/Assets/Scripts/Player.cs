@@ -17,15 +17,18 @@ public class Player : MonoBehaviour, ICombat
     public bool canCheckGround;
     private bool playerIsOnGround;
     [SerializeField] PlayerAnimator anim;
-    [SerializeField] int health = 10;
+    [SerializeField] public int health = 10;
 
     public TMP_Text Contador;
+    public TMP_Text refaxText;
+    public int refax = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
         Contador.text = "Salud:  " + health.ToString();
+        refaxText.text = "X" + refax.ToString();
         canCheckGround = true;                              //inicializamos la variable "canCheckGround" como verdadera
         rigidbody2D_ = GetComponent<Rigidbody2D>();
     }
