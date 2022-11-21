@@ -8,21 +8,23 @@ public class CanvasController : MonoBehaviour
     public GameObject On;
     public GameObject Off;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Active()
     {
-        
+        On.SetActive(true);
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Deactive()
     {
-        
+        On.SetActive(false);
     }
 
     public void Changer()
     {
         Off.SetActive(false);
         On.SetActive(true);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Active();
     }
 }

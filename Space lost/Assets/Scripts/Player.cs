@@ -104,7 +104,7 @@ public class Player : MonoBehaviour, ICombat
 
         {
             this.rigidbody2D_.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            //animatorController.Play(AnimationId.Idle);
+            anim.Play(AnimationId.Idle);
 
             StartCoroutine(HandleJumpAnimation());
             canDoubleJump = true;                                                   //prendemos la variable "canDoubleJump" para que brinque
