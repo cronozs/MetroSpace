@@ -1478,6 +1478,7 @@ GameObject:
   - component: {fileID: 736658609}
   - component: {fileID: 736658608}
   - component: {fileID: 736658615}
+  - component: {fileID: 736658616}
   m_Layer: 8
   m_Name: EnemySlime
   m_TagString: Enemy
@@ -1513,6 +1514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   animator: {fileID: 736658611}
+  damageFeedbackEffect: {fileID: 736658616}
 --- !u!70 &736658610
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1590,7 +1592,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a40465af9602b48449aee41068ceacc8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1651,6 +1653,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   wayPointsManager: {fileID: 932828226}
+--- !u!114 &736658616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736658607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23552bf5eec1384b99e1638bde5a05e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &804344091
 GameObject:
   m_ObjectHideFlags: 0
@@ -4159,7 +4173,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4382,6 +4396,7 @@ GameObject:
   - component: {fileID: 1288547757}
   - component: {fileID: 1288547758}
   - component: {fileID: 1288547759}
+  - component: {fileID: 1288547760}
   m_Layer: 8
   m_Name: EnemySkull
   m_TagString: Enemy
@@ -4430,7 +4445,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a40465af9602b48449aee41068ceacc8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4541,6 +4556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   animator: {fileID: 1288547754}
+  damageFeedbackEffect: {fileID: 1288547760}
 --- !u!114 &1288547759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4555,6 +4571,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   wayPointsManager: {fileID: 1139502584}
+--- !u!114 &1288547760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288547749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23552bf5eec1384b99e1638bde5a05e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1316726153
 GameObject:
   m_ObjectHideFlags: 0
@@ -4571,6 +4599,7 @@ GameObject:
   - component: {fileID: 1316726160}
   - component: {fileID: 1316726161}
   - component: {fileID: 1316726162}
+  - component: {fileID: 1316726163}
   m_Layer: 8
   m_Name: Boss
   m_TagString: Enemy
@@ -4634,7 +4663,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a40465af9602b48449aee41068ceacc8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4746,6 +4775,19 @@ MonoBehaviour:
   animator: {fileID: 1316726154}
   enemyHealth: {fileID: 274038655}
   canva: {fileID: 646436263}
+  damageFeedbackEffect: {fileID: 1316726163}
+--- !u!114 &1316726163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316726153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23552bf5eec1384b99e1638bde5a05e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1576929851
 GameObject:
   m_ObjectHideFlags: 0
@@ -4839,6 +4881,7 @@ GameObject:
   - component: {fileID: 1714126473}
   - component: {fileID: 1714126474}
   - component: {fileID: 1714126475}
+  - component: {fileID: 1714126476}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -4866,7 +4909,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a40465af9602b48449aee41068ceacc8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4932,7 +4975,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 092740f972d5fcb4ea5627719fc1dc2f, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -4978,6 +5021,7 @@ MonoBehaviour:
   Contador: {fileID: 804344093}
   refaxText: {fileID: 922925975}
   refax: 0
+  damageFeedbackEffect: {fileID: 1714126476}
 --- !u!114 &1714126473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5025,6 +5069,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a207a7c0633b830418a7aafaf308cbcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1714126476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714126467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23552bf5eec1384b99e1638bde5a05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1888310405

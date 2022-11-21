@@ -22,6 +22,8 @@ public class Player : MonoBehaviour, ICombat
     public TMP_Text Contador;
     public TMP_Text refaxText;
     public int refax = 0;
+    [SerializeField] DamageFeedbackEffect damageFeedbackEffect;
+
 
 
     // Start is called before the first frame update
@@ -128,6 +130,7 @@ public class Player : MonoBehaviour, ICombat
     public void TakeDamage(int damagePoints)
     {
         health -= damagePoints;
+        damageFeedbackEffect.PlayDamageEffect();
         Contador.text = "Salud:  " + health.ToString();
         if (health == 0)
         {

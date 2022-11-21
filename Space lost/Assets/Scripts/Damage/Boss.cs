@@ -9,6 +9,7 @@ public class Boss : MonoBehaviour, ICombat
     [SerializeField] Animator animator;
     public TMP_Text enemyHealth;
     [SerializeField] CanvasController canva;
+    [SerializeField] DamageFeedbackEffect damageFeedbackEffect;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class Boss : MonoBehaviour, ICombat
     public void TakeDamage(int damagePoints)
     {
         health -= damagePoints;
+        damageFeedbackEffect.PlayDamageEffect();
         enemyHealth.text = "health: " + health.ToString();
         if (health <= 0)
         {
