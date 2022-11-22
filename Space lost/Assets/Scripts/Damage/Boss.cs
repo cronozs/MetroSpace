@@ -1,25 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class Boss : MonoBehaviour, ICombat
 {
-    [SerializeField] int health;
+    [SerializeField] float health;
     [SerializeField] Animator animator;
-    public TMP_Text enemyHealth;
+    public Image barraDeVida;
     [SerializeField] CanvasController canva;
     [SerializeField] DamageFeedbackEffect damageFeedbackEffect;
+    [SerializeField] float maxHealth;
 
-    private void Start()
-    {
-        enemyHealth.text = "health: " + health.ToString();
-    }
+   
     public void TakeDamage(int damagePoints)
     {
         health -= damagePoints;
         damageFeedbackEffect.PlayDamageEffect();
-        enemyHealth.text = "health: " + health.ToString();
+        barraDeVida.fillAmount = health / maxHealth;
         if (health <= 0)
         {
             animator.Play("Enemy Death");

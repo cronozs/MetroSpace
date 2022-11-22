@@ -26,5 +26,7 @@ public class CanvasController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Active();
+
+        this.gameObject.SetActive(false);
     }
 }
