@@ -9,7 +9,7 @@ public class BulletDamge : MonoBehaviour
   
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("si esta trigger");
+        //Debug.Log("si esta trigger");
         if (collision.gameObject.tag.Equals(targetTag.ToString()))
         {
             var component = collision.gameObject.GetComponent<ICombat>();

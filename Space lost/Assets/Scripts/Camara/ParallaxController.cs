@@ -9,6 +9,7 @@ public class ParallaxController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float offsetZ;
     [SerializeField] float offsetY;
+    [SerializeField] float offsetX;
 
 
     Vector3 lastPosition;
@@ -16,7 +17,7 @@ public class ParallaxController : MonoBehaviour
     {
         lastPosition = Camera.main.transform.position;
         lastPosition.z = 0;
-        this.transform.localPosition = new Vector3(0, offsetY, offsetZ);
+        this.transform.localPosition = new Vector3(offsetX, offsetY, offsetZ);
     }
 
     // Update is called once per frame

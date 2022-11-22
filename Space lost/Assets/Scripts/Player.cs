@@ -19,7 +19,8 @@ public class Player : MonoBehaviour, ICombat
     [SerializeField] PlayerAnimator anim;
     [SerializeField] public int health = 10;
 
-    public TMP_Text Contador;
+    public GameObject[] hearths;
+    [SerializeField] int hearthSelect;
     public TMP_Text refaxText;
     public int refax = 0;
     [SerializeField] DamageFeedbackEffect damageFeedbackEffect;
@@ -29,7 +30,10 @@ public class Player : MonoBehaviour, ICombat
     // Start is called before the first frame update
     void Start()
     {
-        Contador.text = "Salud:  " + health.ToString();
+        for (int i = 0; health > i; i++)
+        {
+            hearths[i].SetActive(true);
+        }
         refaxText.text = "X" + refax.ToString();
         canCheckGround = true;                              //inicializamos la variable "canCheckGround" como verdadera
         rigidbody2D_ = GetComponent<Rigidbody2D>();
@@ -130,9 +134,27 @@ public class Player : MonoBehaviour, ICombat
     public void TakeDamage(int damagePoints)
     {
         health -= damagePoints;
+        for(int i =0; damagePoints > i; i++)
+        {
+            try
+            {
+                hearths[health + i].SetActive(false);
+            }
+            catch (System.Exception)
+            {
+                hearths[1].SetActive(false);
+                hearths[0].SetActive(false);
+                damageFeedbackEffect.PlayDamageEffect();
+                if (health <= 0)
+                {
+                    Destroy(gameObject);
+                }
+                throw;
+            }
+            hearths[health + i].SetActive(false);
+        }
         damageFeedbackEffect.PlayDamageEffect();
-        Contador.text = "Salud:  " + health.ToString();
-        if (health == 0)
+        if (health <= 0)
         {
             Destroy(gameObject);
         }

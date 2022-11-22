@@ -17,7 +17,10 @@ public class Heal : MonoBehaviour
             player.health += heal;
             if (player.health >= limit )
                 player.health = limit;
-            player.Contador.text = "Salud:  " + player.health.ToString();
+            for (int i = 0; player.health > i; i++)
+            {
+                player.hearths[i].SetActive(true);
+            }
             Destroy(this.gameObject);
         }
     }
