@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84b2cfcaf76e4d42a63744f9e0e2cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 2
   animator: {fileID: 3712149432910099766}
   damageFeedbackEffect: {fileID: 3712149432910099773}
 --- !u!114 &3712149432910099765

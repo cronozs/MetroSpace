@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 9156245243170818125, guid: 93eed45f6cfb4294d996b69160aacfa4, type: 3}
-  heal: 5
+  heal: 2
   targetTag: 0
   limit: 10
 --- !u!58 &6665875245279775490
