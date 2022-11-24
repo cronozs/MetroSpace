@@ -8,7 +8,7 @@ public class Boss : MonoBehaviour, ICombat
     [SerializeField] float health;
     [SerializeField] Animator animator;
     public Image barraDeVida;
-    [SerializeField] CanvasController canva;
+   // [SerializeField] CanvasController canva;
     [SerializeField] DamageFeedbackEffect damageFeedbackEffect;
     [SerializeField] float maxHealth;
 
@@ -36,7 +36,7 @@ public class Boss : MonoBehaviour, ICombat
         if (health <= 0)
         {
             animator.Play("Enemy Death");
-            canva.Deactive();
+            //canva.Deactive();
             Destroy(gameObject);
         }
 
@@ -67,7 +67,7 @@ public class Boss : MonoBehaviour, ICombat
         }
         else
         {
-            this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(20,5), speed * Time.deltaTime);
+            this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(33,31), speed * Time.deltaTime);
 
         }
     }
