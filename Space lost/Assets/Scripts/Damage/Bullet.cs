@@ -6,12 +6,12 @@ public class Bullet : MonoBehaviour
 {
     public GameObject bala;
     [SerializeField] float vel;
-    public AttackController coun;
+    public ArduinoAttack coun;
     [SerializeField] TagId targetTag;
     // Start is called before the first frame update
     void Start()
     {
-        coun = FindObjectOfType<AttackController>();
+        coun = FindObjectOfType<ArduinoAttack>();
     }
 
     // Update is called once per frame

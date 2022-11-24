@@ -76,14 +76,39 @@ public class ArduinoAttack : MonoBehaviour
             bullet.transform.rotation = Quaternion.Euler(0, 0, 90);
             InstanciarBala();
         }
-        else if (arr <= 1 && arr > 0 && gatillo)
+        else if (arr <= 1.5 && arr > 0 && gatillo)
         {
             bullet.transform.rotation = Quaternion.Euler(0, 0, 135);
             InstanciarBala();
         }
-        else if (gatillo)
+        else if (arr <= 3 && arr > 1.5 && gatillo)
+        {
+            bullet.transform.rotation = Quaternion.Euler(0, 0, 180);
+            InstanciarBala();
+        }
+        else if (arr <= 4.5 && arr > 3 && gatillo)
+        {
+            bullet.transform.rotation = Quaternion.Euler(0, 0, 225);
+            InstanciarBala();
+        }
+        else if (arr <= 6 && arr > 4.5 && gatillo)
+        {
+            bullet.transform.rotation = Quaternion.Euler(0, 0, 270);
+            InstanciarBala();
+        }
+        else if (arr <= 7.5 && arr > 6 && gatillo)
+        {
+            bullet.transform.rotation = Quaternion.Euler(0, 0, 315);
+            InstanciarBala();
+        }
+        else if (arr <= 9 && arr > 7.5 && gatillo)
         {
             bullet.transform.rotation = Quaternion.Euler(0, 0, 0);
+            InstanciarBala();
+        }
+        else if (gatillo)
+        {
+            bullet.transform.rotation = Quaternion.Euler(0, 0, 45);
             InstanciarBala();
         }
     }
@@ -102,15 +127,40 @@ public class ArduinoAttack : MonoBehaviour
             arrow.transform.position = player.transform.position + new Vector3(0, 1.7f, 0);
             arrow.transform.rotation = Quaternion.Euler(0, 0, 90);
         }
-        else if (arr <= 1 && arr > 0)
+        else if (arr <= 1.5 && arr > 0)
         {
             arrow.transform.position = player.transform.position + new Vector3(-1, 1.5f, 0);
             arrow.transform.rotation = Quaternion.Euler(0, 0, 135);
         }
-        else
+        else if (arr <= 3 && arr > 0)
+        {
+            arrow.transform.position = player.transform.position + new Vector3(-1.2f, 0, 0);
+            arrow.transform.rotation = Quaternion.Euler(0, 0, 180);
+        }
+        else if (arr <= 4.5 && arr > 0)
+        {
+            arrow.transform.position = player.transform.position + new Vector3(-1, -1.5f, 0);
+            arrow.transform.rotation = Quaternion.Euler(0, 0, 225);
+        }
+        else if (arr <= 6 && arr > 0)
+        {
+            arrow.transform.position = player.transform.position + new Vector3(0, -1.5f, 0);
+            arrow.transform.rotation = Quaternion.Euler(0, 0, 270);
+        }
+        else if (arr <= 7.5 && arr > 0)
+        {
+            arrow.transform.position = player.transform.position + new Vector3(1, -1.5f, 0);
+            arrow.transform.rotation = Quaternion.Euler(0, 0, 315);
+        }
+        else if (arr <= 9 && arr > 0)
         {
             arrow.transform.position = player.transform.position + new Vector3(1.2f, 0, 0);
             arrow.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            arrow.transform.position = player.transform.position + new Vector3(1, 1.5f, 0);
+            arrow.transform.rotation = Quaternion.Euler(0, 0, 45);
         }
     }
 }
