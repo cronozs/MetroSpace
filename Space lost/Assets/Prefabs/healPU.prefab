@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: 0
-  heal: {fileID: 0}
+  heal: {fileID: 6665875245279775493, guid: ee74d5a0544b15940a07f7ed9e5d5c54, type: 3}
   aumento: 5
 --- !u!58 &4425847516404330759
 CircleCollider2D:

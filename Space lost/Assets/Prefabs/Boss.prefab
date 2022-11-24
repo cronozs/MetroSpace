@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4714205667835282725}
   - component: {fileID: 4714205667835282720}
   - component: {fileID: 4714205667835282751}
-  - component: {fileID: 4714205667835282750}
   - component: {fileID: 4714205667835282749}
   - component: {fileID: 4714205667835282748}
   m_Layer: 8
@@ -162,20 +161,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePoints: 3
   targetTag: 0
---- !u!114 &4714205667835282750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4714205667835282726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a78e00dbf5b0934fa2e2c0b12ab7f0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  wayPointsManager: {fileID: 0}
 --- !u!114 &4714205667835282749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,9 +175,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   animator: {fileID: 4714205667835282725}
-  enemyHealth: {fileID: 0}
+  barraDeVida: {fileID: 0}
   canva: {fileID: 0}
   damageFeedbackEffect: {fileID: 4714205667835282748}
+  maxHealth: 0
+  player: {fileID: 0}
+  speed: 0
+  distance: 0
+  perseguir: 0
+  espera: 0
 --- !u!114 &4714205667835282748
 MonoBehaviour:
   m_ObjectHideFlags: 0

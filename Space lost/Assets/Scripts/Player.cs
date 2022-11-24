@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, ICombat
 {
     [SerializeField] private float speed;                  //"SerializeField" significa que desde el inspector podemos  manipular o ver su valor.
     [SerializeField] private Vector2 movementDirection;     //"SerializeField" significa que desde el inspector podemos  manipular o ver su valor.
-    private Rigidbody2D rigidbody2D_;
+    [SerializeField] Rigidbody2D rigidbody2D_;
     private bool jumpPressed = false;
     [SerializeField] private float jumpForce;               //Agregamos una variable flotante para agrear furza al salto
     public bool canDoubleJump;
@@ -25,8 +26,14 @@ public class Player : MonoBehaviour, ICombat
     public int refax = 0;
     [SerializeField] DamageFeedbackEffect damageFeedbackEffect;
 
+    [SerializeField] Heal limit;
+    [SerializeField] BulletDamge bullet;
 
 
+    private void Awake()
+    {
+        LoadData();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -148,16 +155,43 @@ public class Player : MonoBehaviour, ICombat
                 if (health <= 0)
                 {
                     Destroy(gameObject);
+                    PlayerPrefs.DeleteAll();
+                    SceneManager.LoadScene(1);
                 }
-                throw;
             }
-            hearths[health + i].SetActive(false);
         }
         damageFeedbackEffect.PlayDamageEffect();
         if (health <= 0)
         {
             Destroy(gameObject);
+            PlayerPrefs.DeleteAll();
+            SceneManager.LoadScene(1);
+
         }
 
+    }
+
+    public void Savedata()
+    {
+        PlayerPrefs.SetInt("salud", health);
+        PlayerPrefs.SetInt("refax", refax);
+        PlayerPrefs.SetInt("limit", limit.limit);
+        PlayerPrefs.SetInt("damage", bullet.damagePoints);
+        PlayerPrefs.SetFloat("positionX", this.transform.position.x);
+        PlayerPrefs.SetFloat("positionY", this.transform.position.y);
+    }
+
+    public void LoadData()
+    {
+        health = PlayerPrefs.GetInt("salud", 10);
+        refax = PlayerPrefs.GetInt("refax", 0);
+        limit.limit = PlayerPrefs.GetInt("limit", 10);
+        bullet.damagePoints = PlayerPrefs.GetInt("damage", 1);
+        this.transform.position = new Vector3(PlayerPrefs.GetFloat("positionX"), PlayerPrefs.GetFloat("positionY"), 0);
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }
